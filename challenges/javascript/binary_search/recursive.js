@@ -1,23 +1,29 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @param {number} low
+ * @param {number} high
+ * @return {number}
+ */
 const search = function (
 	nums,
 	target,
-	lower = 0,
-	upper = nums.length - 1,
+	low = 0,
+	high = nums.length - 1,
 ) {
-	const middle = Math.floor((upper + lower) / 2);
+	const mid = Math.floor(low + ((high - low) / 2));
 
-	if (nums[middle] === target) {
-		return middle;
-	}
-
-	if (lower > upper) {
-		return middle;
-	}
-
-	if (nums[middle] < target) {
-		search(nums, target, middle + 1, upper);
-	} else {
-		search(nums, target, lower, middle - 1);
+	switch (true) {
+		case nums[mid] === target:
+			return mid;
+		case nums[mid] > target:
+			search(nums, target, low, mid - 1);
+			break;
+		case nums[mid] < target:
+			search(nums, target, mid + 1, high);
+			break;
+		default:
+			return -1;
 	}
 };
 
