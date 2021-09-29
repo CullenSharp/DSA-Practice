@@ -1,3 +1,16 @@
+/* eslint-disable max-params */
+
+/**
+ * @param {number} a
+ * @param {number} b
+ * @return {number}
+ */
+const defaultCompare = function (a, b) {
+	return (
+		a > b ? 1 : (a < b ? -1 : 0)
+	);
+};
+
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -10,21 +23,22 @@ const search = function (
 	target,
 	low = 0,
 	high = nums.length - 1,
+	compare = defaultCompare,
 ) {
-	const mid = Math.floor(low + ((high - low) / 2));
-
-	switch (true) {
-		case nums[mid] === target:
-			return mid;
-		case nums[mid] > target:
-			search(nums, target, low, mid - 1);
-			break;
-		case nums[mid] < target:
-			search(nums, target, mid + 1, high);
-			break;
-		default:
-			return -1;
+	if (low > high) {
+		return -1;
 	}
+
+	const mid = Math.floor((high + low) / 2);
+	const comparison = compare(target, nums[mid]);
+
+	return (
+		comparison === -1
+			? search(nums, target, low, mid - 1)
+			: comparison === 1
+				? search(nums, target, mid + 1, high)
+				: mid
+	);
 };
 
 module.exports = search;
