@@ -76,4 +76,31 @@ At last, if our search is exhausted, return -1.
   return -1
 ```
 
+## Big O
+
+Here's the full code:
+
+```JS
+ALGORITHM search(nums, target, low, high)
+  IF low is greater than high
+    Return -1
+
+  Mid <- low + ((high - low) / 2)
+
+  IF value at middle index equals target
+    Return middle index
+
+  IF target is less than value at middle
+    Continue search on the low half
+  IF target is greater than value at middle
+    Continue search on the higher half
+```
+
+There are two easy ways to discover the time complexity of this algorithm. The easiest is to infer the *meaning* of the problem. If we're familiar with the principles of a binary search, we can assume that it iteratively, or recursively, divides the search area in half each iteration. This is the inverse of exponentiation, which is logarithm. From this we get O(logN) where n is the size of the search area.
+
+Binaries are base 2, so the equation goes ㏒₂n = x, and 2ˣ = n. For example, ㏒₂100 ≈ 7 so 2⁷ ≈ 100. From this we get O(logN). Don't worry about the 2; it's constant, so we drop it.
+
+## Notes
+
+I need to get better at describing this...
 ## Resources
