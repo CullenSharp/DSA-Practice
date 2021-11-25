@@ -7,15 +7,10 @@
 
 // We can represent a frequency table simply as an array with 4 values
 // [n₀₀, n₁₁, n₁₀, n₀₁]
-function phi(table) {
+function phi([n00, n11, n10, n01]) {
   return (
-    (table[0] * table[1] - table[2] * table[3]) /
-    Math.sqrt(
-      (table[1] + table[2]) *
-        (table[0] + table[3]) *
-        (table[1] + table[3]) *
-        (table[0] + table[2])
-    )
+    (n00 * n11 - n10 * n01) /
+    Math.sqrt((n11 + n10) * (n00 + n01) * (n11 + n01) * (n00 + n10))
   );
 }
 
