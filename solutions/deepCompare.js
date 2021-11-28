@@ -9,10 +9,10 @@ function deepCompare(a, b) {
   if (a && b) {
     if (typeof a == "object" && typeof b == "object") {
       if (a instanceof Array && b instanceof Array) {
-        res = a.length == b.length && a.every((_, idx) => a[idx] == b[idx]);
+        res = a.length === b.length && a.every((_, idx) => a[idx] === b[idx]);
       } else {
         res =
-          Object.keys(a).length == Object.keys(b).length &&
+          Object.keys(a).length === Object.keys(b).length &&
           Object.keys(a).every((key) => a[key] === b[key]);
       }
     }

@@ -6,7 +6,6 @@
  * Private props and methods are only accessible internally
  *
  * Encapsulation is the practice of separating interface from implementation
- *
  */
 
 // An old constructor function
