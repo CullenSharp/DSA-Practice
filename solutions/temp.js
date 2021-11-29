@@ -1,35 +1,37 @@
-/** Oop -> object oriented programming
- *
- * Interfaces are the exposed surface of a data structure or class
- * It outlines the public methods and properties
- * Public props and methods are bindings that are externally accessible
- * Private props and methods are only accessible internally
- *
- * Encapsulation is the practice of separating interface from implementation
- *
- */
-
-// An old constructor function
-function Rabbit(type) {
-  this.type = type;
-}
-
-Rabbit.prototype.speak = function (line) {
-  console.log(`The ${this.type} rabbit says '${line}'`);
-};
-
-const hungryRabbit = new Rabbit("hungry");
-
-// A class declaration
-class Dog {
-  constructor(type) {
-    this.type = type;
+class Party {
+  constructor(people) {
+    this._people = people;
   }
 
-  speak(line) {
-    console.log(`The ${this.type} dog says '${line}'`);
+  get range() {
+    let low = 0;
+    let high = 0;
+    for (let person of this._people) {
+      if (!low) low = person[1];
+      if (person[1] < low) {
+        low = person[1];
+      }
+      if (person[1] > high) {
+        high = person[1];
+      }
+    }
+    return `The range of ages in your party is ${low} to ${high} years old.`;
+  }
+
+  get size() {
+    return `There are ${this._people.size} members in your party.`;
   }
 }
 
-const passiveDog = new Dog("passive");
-passiveDog.speak("I would never.");
+const people = new Map();
+people.set("Boris", 18);
+people.set("Jean", 98);
+people.set("Sean", 56);
+people.set("Angel", 12);
+people.set("Sarah", 36);
+people.set("Sasha", 27);
+
+const party = new Party(people);
+
+console.log(party.range);
+console.log(party.size);
