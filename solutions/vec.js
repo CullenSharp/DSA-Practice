@@ -39,8 +39,8 @@ class Vec {
    * @returns {num} distance
    */
   get length() {
-    // distance = √((x₁ - x₂)² + (y₁ - y₂)²)
-    return Math.sqrt(Math.pow(0 - this.x, 2) + Math.pow(0 - this.y, 2));
+    // distance = √((x₂ - x₁)² + (y₂ - y₁)²)
+    return Math.sqrt(Math.pow(this.x - 0, 2) + Math.pow(this.y - 0, 2));
   }
 }
 
