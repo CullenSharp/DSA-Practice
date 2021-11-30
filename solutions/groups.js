@@ -9,7 +9,7 @@
 
 class Group {
   constructor() {
-    this.group = {};
+    this.group = [];
   }
 
   /**
@@ -18,7 +18,7 @@ class Group {
    * @returns {bool}
    */
   has(value) {
-    return this.group.hasOwnProperty(value);
+    return this.group.indexOf(value) !== -1;
   }
 
   /**
@@ -27,7 +27,7 @@ class Group {
    */
   add(value) {
     if (!this.has(value)) {
-      this.group[value] = value;
+      this.group.push(value);
     }
   }
 
@@ -37,7 +37,7 @@ class Group {
    */
   delete(value) {
     if (this.has(value)) {
-      delete this.group[value];
+      this.group = this.group.filter((item) => item !== value);
     }
   }
 
@@ -54,16 +54,27 @@ class Group {
 
     return group;
   }
+
+  [Symbol.iterator] = function () {
+    return new GroupIterator(this);
+  };
 }
 
-let group = Group.from([10, 20]);
-console.log(group.has(10));
-// → true
+class GroupIterator {
+  constructor({ group }) {
+    this.current = 0;
+    this.group = group;
+  }
 
-console.log(group.has(30));
-// → false
+  next() {
+    if (this.current >= this.group.length) return { done: true };
 
-group.add(10);
-group.delete(10);
-console.log(group.has(10));
-// → false
+    let value = this.group[this.current];
+    this.current++;
+    return { value, done: false };
+  }
+}
+
+for (let value of Group.from(["a", "b", "c"])) {
+  console.log(value);
+}
