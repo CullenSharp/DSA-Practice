@@ -13,7 +13,6 @@ function numberToString(n, base = 10) {
   }
 
   do {
-    // Concatentates the result onto the previous iteration
     result = String(n % base) + result;
     n = Math.floor(n / base);
   } while (n > 0);
