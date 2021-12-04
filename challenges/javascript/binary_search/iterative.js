@@ -1,22 +1,29 @@
+/* eslint-disable indent */
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
 const search = function (nums, target) {
-	let lower = 0;
-	let upper = nums.length - 1;
+  let start = 0;
+  let end = nums.length - 1;
 
-	while (lower <= upper) {
-		const middle = Math.floor((lower + upper) / 2);
+  while (start <= end) {
+    const mid = ~~((end + start) / 2);
 
-		if (nums[middle] === target) {
-			return middle;
-		}
+    if (nums[mid] === target) {
+      return mid;
+    }
 
-		if (nums[middle] < target) {
-			lower = middle + 1;
-		} else {
-			upper = middle - 1;
-		}
-	}
+    if (nums[mid] > target) {
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+  }
 
-	return -1;
+  return -1;
 };
 
 module.exports = search;
