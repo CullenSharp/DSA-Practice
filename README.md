@@ -8,6 +8,15 @@ I practice my DSA skills here.
 
 ### [Resources](#-Resources)
 
+### [Glossary](#Glossary)
+
 ## 🔍 Resources
 
 [My flash cards](https://quizlet.com/615014779/vocab-flash-cards/)
+
+## Glossary
+
+- Shifting window
+  - A sublist that runs over an underlying collection
+  - Useful to compute a running average or get all adjacent pairs
+  - Created using two pointers
