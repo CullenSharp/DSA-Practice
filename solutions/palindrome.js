@@ -1,3 +1,5 @@
+// Both are O(n)
+
 /**
  * Returns true or false if a given string is a palidrome
  * @param {String} s
@@ -16,8 +18,11 @@ function palidrome(s) {
   return right === s.length || left < 0;
 }
 
-let testCases = ["a", "bb", "abc", "racecar", "blue", "baab", "caac"];
-for (let testCase of testCases) {
-  console.log("\n", palidrome(testCase));
-  console.log(testCase);
+// also
+function palidromeV2(s) {
+  let reverse = "";
+  for (let i = s.length - 1; i >= 0; i--) {
+    reverse += s[i];
+  }
+  return reverse === s;
 }
