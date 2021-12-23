@@ -15,8 +15,4 @@ function fib(n) {
   return fib(n - 1) + fib(n - 2);
 }
 
-console.log(fib(3));
-// -> 2
-
-console.log(fib(5));
-// -> 5
+module.exports = fib;
