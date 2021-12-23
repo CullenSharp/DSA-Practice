@@ -1,4 +1,4 @@
-// O(2^n)
+// O(2^s)
 
 const fib = require("./nthFibonacci");
 
