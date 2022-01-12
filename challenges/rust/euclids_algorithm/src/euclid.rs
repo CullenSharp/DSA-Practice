@@ -1,15 +1,17 @@
 pub fn run(mut m: i32, mut n: i32) {
-  let mut i = 0;
-  while i < m {
-    let r = m % n;
-    
-    if r == 0 {
+  if m <= n {
+    let t = m;
+    m = n;
+    n = t;
+  }
+  while n <= m {
+    let rem = m % n;
+    if rem == 0 {
       println!("The greatest common divisor is {}", n);
       break;
     } else {
       m = n;
-      n = r;
+      n = rem;
     }
-    i = i + 1;
   }
 }
