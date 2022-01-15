@@ -26,7 +26,7 @@ var bigShaq = {
         // Get random int between 0 and n-1
         var randLen = ~~(Math.random() * (this.skats.length - 1));
         var i = 0;
-        var skat = "";
+        var skat = "The ting goes";
         do {
             var randSkat = ~~(Math.random() * (this.skats.length - 1));
             // Add random skat to string
@@ -38,4 +38,3 @@ var bigShaq = {
     }
 };
 bigShaq.skat();
-bigShaq.quickMaths(2, 2);

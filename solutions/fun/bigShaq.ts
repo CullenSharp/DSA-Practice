@@ -38,7 +38,7 @@ const bigShaq: BigShaq = {
     // Get random int between 0 and n-1
     const randLen: number = ~~(Math.random() * (this.skats.length - 1));
     let i = 0;
-    let skat: String = "";
+    let skat: String = "The ting goes";
 
     do {
       let randSkat: number = ~~(Math.random() * (this.skats.length - 1));
@@ -52,4 +52,3 @@ const bigShaq: BigShaq = {
 }
 
 bigShaq.skat();
-bigShaq.quickMaths(2, 2);
