@@ -8,18 +8,12 @@ from typing import List
 	:return type: int
 """
 def missing_num(nums: List[int]) -> int:
-	sum = 0
-	ideal_sum = 0
-	
-	# Compute sums
-	# sum <- n0 + n1 + n2 ... nk
-	# ideal_sum <- (i + 1) + (i + 1) + (i + 1) ... 
-	for i, n in enumerate(nums):
-		sum += n
-		ideal_sum += i + 1
-	
+	n = len(nums)
+
 	# The missing number is the difference of sums
-	return ideal_sum - sum
+	# Gaussian sum - actual sum
+	return (n * (n + 1) // 2) - sum(nums) 		
+	
 
 def main():
 	# Expect 2
