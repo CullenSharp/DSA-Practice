@@ -1,4 +1,12 @@
-exclude build artifacts
+# Exclude build artifacts
+# JS
 node_modules
-.DS_Store
+
+# Rust
 target
+
+# Python
+__pycache__
+
+# Exclude environment variables
+.DS_Store
